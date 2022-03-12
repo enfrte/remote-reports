@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+Speech bubble U+1F4AC 💬
+
+<span 
+	
+	id="remote_reports"
+	
+	data-settings='{
+		"url": true
+	}'
+
+	style="display:block;width:40px;height:40px;font-size:30px;background-color:black;cursor:pointer;position:absolute;bottom:0;right:0;">💬
+</span>
+
+<script>
+	let element = document.querySelector('#remote_reports');
+	let settings = JSON.parse(element.dataset.settings);
+	
+	let query_string = 'http://codinginthecold.byethost5.com/demos/reports?';
+
+	let url = '&url=';
+
+	if (settings.url) {
+		url += encodeURI(window.location.href);
+		//console.log(url);
+		query_string += url;
+	}
+
+	// Modal container
+
+
+	let a = document.createElement('a');
+	let linkText = document.createTextNode('Send message');
+
+	a.appendChild(linkText);
+	a.title = 'Send message';
+	a.href = query_string;
+	element.appendChild(a);
+	//console.log(settings);
+</script>
+
+</body>
+</html>
